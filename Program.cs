@@ -1,4 +1,5 @@
 ﻿using Phonebook.Controllers;
+using MorseCodeTranslator.Controller;
 using System;
 
 namespace MainApp
@@ -12,12 +13,12 @@ namespace MainApp
             while (isRunning)
             {
                 Console.WriteLine(
-                    "+-------------------+\n" +
-                    "| Main Menu         |\n" +
-                    "| 1: Phonebook      |\n" +
-                    "| 2: Another App    |\n" +
-                    "| 3: Exit           |\n" +
-                    "+-------------------+"
+                    "+---------------------+\n" +
+                    "| Main Menu           |\n" +
+                    "| 1: Phonebook        |\n" +
+                    "| 2: Morse Translator |\n" +
+                    "| 3: Exit             |\n" +
+                    "+---------------------+"
                 );
 
                 var input = Console.ReadLine();
@@ -27,8 +28,7 @@ namespace MainApp
                         RunPhonebook();
                         break;
                     case "2":
-                        Console.WriteLine("Another App Here");
-                        // Future expansion for another app
+                        RunMorseCodeTranslator();
                         break;
                     case "3":
                         isRunning = false;
@@ -39,7 +39,6 @@ namespace MainApp
                 }
             }
         }
-
         static void RunPhonebook()
         {
             var phonebookController = new PhonebookController();
@@ -74,6 +73,13 @@ namespace MainApp
                         break;
                 }
             }
+        }
+        static void RunMorseCodeTranslator()
+        {
+            var morseCodeTranslatorController = new MorseCodeTranslatorController();
+            Console.WriteLine("Input what you want to translate:");
+            var input = Console.ReadLine();
+            morseCodeTranslatorController.translate(input);
         }
     }
 }
