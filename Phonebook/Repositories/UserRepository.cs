@@ -34,6 +34,11 @@ namespace Phonebook.Repositories
             {
                 lines.RemoveAt(rowIndex);
                 File.WriteAllLines(FilePath, lines);
+                Console.WriteLine("User deleted successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Invalid row index");
             }
         }
 

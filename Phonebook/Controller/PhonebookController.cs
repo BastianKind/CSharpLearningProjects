@@ -84,7 +84,6 @@ namespace Phonebook.Controllers
         {
             int rowIndex = GetUserRow();
             _phonebookService.DeleteUser(rowIndex);
-            Console.WriteLine("User deleted successfully");
         }
 
         public void SearchUser()
